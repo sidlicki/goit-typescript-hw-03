@@ -41,12 +41,15 @@ abstract class House{
     protected door: boolean = false;
     protected key: Key;
 
+    protected tenants: Person[] = [];
+
     constructor(key: Key) { this.key = key; }
     
     abstract openDoor(key: Key): void;
 
     comeIn(person: Person): void{
         if (this.door) {
+            this.tenants.push(person);
             console.log("welcome");
         }
         else {
